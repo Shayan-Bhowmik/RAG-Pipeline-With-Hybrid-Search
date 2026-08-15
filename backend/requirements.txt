@@ -3,3 +3,5 @@ uvicorn[standard]==0.30.6
 pydantic-settings==2.4.0
 python-dotenv==1.0.1
 pymupdf==1.25.3
+sentence-transformers>=3.0.0
+supabase>=2.0.0

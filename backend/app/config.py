@@ -11,8 +11,8 @@ class Settings(BaseSettings):
 
     anthropic_api_key: str=""
 
-    embedding_model_name: str="bge-base-en"
-    reranker_model_name: str="bge-reranker-base"
+    embedding_model_name: str="BAAI/bge-base-en-v1.5"
+    reranker_model_name: str="BAAI/bge-reranker-base"
 
     rrf_k: int=60
     top_n_retrieval: int=20
