@@ -1,13 +1,21 @@
 import sys 
-from app.ingestion.pipeline import ingest_file
+from pathlib import Path 
+from app.ingestion.pipeline import ingest_file, ingest_folder
 
 def main() -> None:
     if len(sys.argv) != 2:
-        print("Usage: python -m scripts.ingest <file-path>")
+        print("Usage: python -m scripts.ingest <file-or-folder-path>")
         sys.exit(1)
 
-    file_path = sys.argv[1]
-    result = ingest_file(file_path)
+    target = Path(sys.argv[1])
+
+    if target.is_dir():
+        result = ingest_folder(target)
+    elif target.is_file():
+        result = ingest_file(target)
+    else:
+        print(f"Error: '{target}' is not a valid file or directory.")
+        sys.exit(1)
 
     print(f"\nResult: {result}")
 
