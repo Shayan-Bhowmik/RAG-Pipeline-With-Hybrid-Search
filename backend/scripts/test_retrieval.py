@@ -12,7 +12,7 @@ def main():
     method = sys.argv[1]
     query = " ".join(sys.argv[2:])
 
-    if method not in ("dense", "sparse"):
+    if method not in ("dense", "sparse", "hybrid"):
         print("Method must be 'dense' or 'sparse'")
         sys.exit(1)
 
