@@ -12,7 +12,7 @@ def main():
     method = sys.argv[1]
     query = " ".join(sys.argv[2:])
 
-    if method not in ("dense", "sparse", "hybrid"):
+    if method not in ("dense", "sparse", "hybrid", "reranked"):
         print("Method must be 'dense' or 'sparse'")
         sys.exit(1)
 
@@ -38,8 +38,15 @@ def main():
 
         print(f"\nTop {len(results)} results:")
         for i, r in enumerate(results, 1):
-            score = r.get("score", 0.0)
+            if method == "reranked":
+                score = r.get("reranker_score", 0.0)
+            elif method == "hybrid":
+                score = r.get("rrf_score", 0.0)
+            else:
+                score = r.get("score", 0.0)
+                
             text = r.get("text", "")[:100].replace("\n", " ")
+
             print(f"  {i}. [Score: {score:.4f}] {text}...")
 
     except urllib.error.URLError as e:
