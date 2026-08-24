@@ -6,6 +6,8 @@ from app.retrieval.sparse import sparse_search
 
 from app.retrieval.fusion import reciprocal_rank_fusion
 
+from app.retrieval.reranker import rerank
+
 router = APIRouter()
 
 
@@ -33,3 +35,11 @@ def retrieve_hybrid(req: RetrieveRequest):
     sparse_results=sparse_search(req.query, top_n=req.top_n)
     fused=reciprocal_rank_fusion(dense_results, sparse_results, top_n=req.top_n)
     return {"query":req.query, "method":"hybrid", "results":fused}
+
+@router.post("/retrieve/reranked")
+def retrieve_reranked(req: RetrieveRequest):
+    dense_results=dense_search(req.query, top_n=req.top_n)
+    sparse_results=sparse_search(req.query, top_n=req.top_n)
+    fused=reciprocal_rank_fusion(dense_results, sparse_results, top_n=req.top_n)
+    reranked=rerank(req.query, fused)
+    return {"query": req.query, "method": "reranked", "results": reranked}
