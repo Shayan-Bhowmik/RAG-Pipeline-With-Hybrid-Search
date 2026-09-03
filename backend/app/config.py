@@ -9,7 +9,10 @@ class Settings(BaseSettings):
     supabase_url: str=""
     supabase_service_role_key: str=""
 
-    anthropic_api_key: str=""
+    openrouter_api_key: str=""
+    llm_model_name: str="minimax/minimax-m3:free"
+
+
 
     embedding_model_name: str="BAAI/bge-base-en-v1.5"
     reranker_model_name: str="BAAI/bge-reranker-base"
