@@ -5,6 +5,7 @@ from app.retrieval.sparse import sparse_search
 from app.retrieval.fusion import reciprocal_rank_fusion
 from app.retrieval.reranker import rerank
 from app.generation.prompt import SYSTEM_PROMPT, build_user_message
+from app.generation.citations import extract_citations
 
 
 _client: OpenAI | None = None
@@ -24,7 +25,7 @@ def _get_client() -> OpenAI:
 
 
 def generate_answer(query: str, top_n: int = 10, top_k: int = 5) -> dict:
-    """Full RAG pipeline: retrieve → fuse → rerank → generate."""
+    """Full RAG pipeline: retrieve -> fuse -> rerank -> generate."""
 
     # 1. Retrieve from both methods
     dense_results = dense_search(query, top_n=top_n)
@@ -51,9 +52,13 @@ def generate_answer(query: str, top_n: int = 10, top_k: int = 5) -> dict:
 
     answer = response.choices[0].message.content
 
+    # 5. Extract citations from the answer
+    citations = extract_citations(answer, reranked)
+
     return {
         "query": query,
         "answer": answer,
+        "citations": citations,
         "chunks_used": [
             {
                 "chunk_id": c.get("chunk_id"),
