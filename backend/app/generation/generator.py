@@ -58,6 +58,7 @@ def generate_answer(query: str, top_n: int = 10, top_k: int = 5) -> dict:
     return {
         "query": query,
         "answer": answer,
+        "retrieval_mode": "hybrid",
         "citations": citations,
         "chunks_used": [
             {
