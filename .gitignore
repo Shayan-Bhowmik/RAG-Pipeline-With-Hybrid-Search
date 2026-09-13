@@ -37,3 +37,5 @@ models_cache/
 backend/eval/results.md
 
 backend/corpus
+
+backend/chunks_dump.json

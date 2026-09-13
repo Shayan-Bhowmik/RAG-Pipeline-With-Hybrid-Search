@@ -1,0 +1,152 @@
+[
+  {
+    "query": "What is the main problem that HybridRAG tries to solve compared to standard RAG?",
+    "expected_chunk_id": "32bdea57-85bc-4f31-be31-b5465de2ff74",
+    "query_type": "paraphrase"
+  },
+  {
+    "query": "Does HybridRAG solve vocabulary mismatch?",
+    "expected_chunk_id": "32bdea57-85bc-4f31-be31-b5465de2ff74",
+    "query_type": "exact_term"
+  },
+  {
+    "query": "Who is the intended audience for this project?",
+    "expected_chunk_id": "7b901e54-6e67-4600-8788-56612146fbeb",
+    "query_type": "paraphrase"
+  },
+  {
+    "query": "Is fine-tuning of embedding models supported in v1?",
+    "expected_chunk_id": "7b901e54-6e67-4600-8788-56612146fbeb",
+    "query_type": "exact_term"
+  },
+  {
+    "query": "Should we use Wikipedia-style corpora for evaluation?",
+    "expected_chunk_id": "e3539e6b-0ea6-4b7c-866c-c35e1fbcf7a8",
+    "query_type": "exact_term"
+  },
+  {
+    "query": "What kind of documents make the best test data for this system?",
+    "expected_chunk_id": "e3539e6b-0ea6-4b7c-866c-c35e1fbcf7a8",
+    "query_type": "paraphrase"
+  },
+  {
+    "query": "What ranking algorithm is used to combine dense and sparse results?",
+    "expected_chunk_id": "3b0058e9-44e8-404b-a253-b65c77d25a8b",
+    "query_type": "exact_term"
+  },
+  {
+    "query": "How are the keyword and semantic search results merged together?",
+    "expected_chunk_id": "3b0058e9-44e8-404b-a253-b65c77d25a8b",
+    "query_type": "paraphrase"
+  },
+  {
+    "query": "Can you explain the step-by-step process of what happens when a user submits a question?",
+    "expected_chunk_id": "763b8be2-b9cb-420d-8699-197e9c8f3ece",
+    "query_type": "paraphrase"
+  },
+  {
+    "query": "Are dense and sparse retrieval run sequentially or in parallel?",
+    "expected_chunk_id": "763b8be2-b9cb-420d-8699-197e9c8f3ece",
+    "query_type": "exact_term"
+  },
+  {
+    "query": "What features constitute the minimum viable product for this project?",
+    "expected_chunk_id": "e6b05522-7d8d-42c2-9839-5ec70ae27a79",
+    "query_type": "paraphrase"
+  },
+  {
+    "query": "What tickets are included in the frontend MVP?",
+    "expected_chunk_id": "e6b05522-7d8d-42c2-9839-5ec70ae27a79",
+    "query_type": "exact_term"
+  },
+  {
+    "query": "What is the maximum acceptable latency for an end-to-end query?",
+    "expected_chunk_id": "82fed16d-1178-4028-983d-03ff44669b25",
+    "query_type": "exact_term"
+  },
+  {
+    "query": "Are there any constraints on how much the architecture can cost per query?",
+    "expected_chunk_id": "82fed16d-1178-4028-983d-03ff44669b25",
+    "query_type": "paraphrase"
+  },
+  {
+    "query": "Is ColBERT-style late-interaction retrieval included?",
+    "expected_chunk_id": "1ca89c01-3852-4aa1-8f83-3574456d365c",
+    "query_type": "exact_term"
+  },
+  {
+    "query": "Will the system remember my previous questions in a chat interface?",
+    "expected_chunk_id": "1ca89c01-3852-4aa1-8f83-3574456d365c",
+    "query_type": "paraphrase"
+  },
+  {
+    "query": "What embedding model is used?",
+    "expected_chunk_id": "13242f62-9551-4ab4-ae4a-be5619a7a8a7",
+    "query_type": "exact_term"
+  },
+  {
+    "query": "Why was a hand-built RRF chosen instead of a library?",
+    "expected_chunk_id": "13242f62-9551-4ab4-ae4a-be5619a7a8a7",
+    "query_type": "paraphrase"
+  },
+  {
+    "query": "What data type is used for the embedding column in the chunks table?",
+    "expected_chunk_id": "cd7ce0ad-deb3-4d57-afbb-e68c385d9c9f",
+    "query_type": "exact_term"
+  },
+  {
+    "query": "How are documents and chunks related in the database?",
+    "expected_chunk_id": "cd7ce0ad-deb3-4d57-afbb-e68c385d9c9f",
+    "query_type": "paraphrase"
+  },
+  {
+    "query": "Does v1 have multi-tenant auth?",
+    "expected_chunk_id": "ee4fd412-acc2-4a8f-8982-5a1fe80e3524",
+    "query_type": "exact_term"
+  },
+  {
+    "query": "How does the backend authenticate with Supabase?",
+    "expected_chunk_id": "ee4fd412-acc2-4a8f-8982-5a1fe80e3524",
+    "query_type": "paraphrase"
+  },
+  {
+    "query": "What can an Unauthenticated API caller do?",
+    "expected_chunk_id": "dd1ba00d-f28e-44c4-a8c7-d9cd43b6ed83",
+    "query_type": "exact_term"
+  },
+  {
+    "query": "Is the Demo User allowed to ingest new documents?",
+    "expected_chunk_id": "dd1ba00d-f28e-44c4-a8c7-d9cd43b6ed83",
+    "query_type": "paraphrase"
+  },
+  {
+    "query": "Does the anon role have SELECT policies on the documents table?",
+    "expected_chunk_id": "7dd7473e-28a9-4749-b367-b93c8a8fcb30",
+    "query_type": "exact_term"
+  },
+  {
+    "query": "Why is Row-Level Security enabled even without multi-tenancy?",
+    "expected_chunk_id": "7dd7473e-28a9-4749-b367-b93c8a8fcb30",
+    "query_type": "paraphrase"
+  },
+  {
+    "query": "What file formats does the document loader accept?",
+    "expected_chunk_id": "9d3849b5-8a1f-4094-a470-aef50647deb9",
+    "query_type": "exact_term"
+  },
+  {
+    "query": "What happens if a Claude API call times out?",
+    "expected_chunk_id": "b6cc749f-7796-46ea-9d56-fa86d9cf8093",
+    "query_type": "paraphrase"
+  },
+  {
+    "query": "What is the token limit for truncating an extremely long query?",
+    "expected_chunk_id": "2eea4ea8-1427-41f9-b12c-6ab573423b56",
+    "query_type": "exact_term"
+  },
+  {
+    "query": "How does the system handle uploading the same PDF twice?",
+    "expected_chunk_id": "77c7e974-8e8b-4d3f-b4ee-554e0218e3f4",
+    "query_type": "paraphrase"
+  }
+]
