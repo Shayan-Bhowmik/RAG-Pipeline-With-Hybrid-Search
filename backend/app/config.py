@@ -10,7 +10,8 @@ class Settings(BaseSettings):
     supabase_service_role_key: str=""
 
     openrouter_api_key: str=""
-    llm_model_name: str="minimax/minimax-m3:free"
+    llm_model_name: str="google/gemma-4-31b-it:free"
+
 
 
 
