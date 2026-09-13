@@ -10,7 +10,7 @@ class Settings(BaseSettings):
     supabase_service_role_key: str=""
 
     openrouter_api_key: str=""
-    llm_model_name: str="google/gemma-4-31b-it:free"
+    llm_model_name: str="nvidia/nemotron-3-ultra-550b-a55b:free"
 
 
 

@@ -23,7 +23,7 @@ def _get_client() -> OpenAI:
     return _client
 
 
-def generate_answer(query: str, top_n: int = 10, top_k: int = 5) -> dict:\
+def generate_answer(query: str, top_n: int = 10, top_k: int = 5) -> dict:
 
     # 1. Retrieve from both methods
     dense_results = dense_search(query, top_n=top_n)
