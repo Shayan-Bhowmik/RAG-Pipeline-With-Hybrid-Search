@@ -34,7 +34,6 @@ Thumbs.db
 models_cache/
 
 # ── Eval outputs (regenerated, not committed) ──
-backend/eval/results.md
 
 backend/corpus
 
