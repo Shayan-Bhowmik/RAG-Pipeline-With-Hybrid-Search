@@ -12,7 +12,6 @@ _client: OpenAI | None = None
 
 
 def _get_client() -> OpenAI:
-    """Lazy-init the OpenRouter client (OpenAI-compatible)."""
     global _client
     if _client is None:
         if not settings.openrouter_api_key:
@@ -24,8 +23,7 @@ def _get_client() -> OpenAI:
     return _client
 
 
-def generate_answer(query: str, top_n: int = 10, top_k: int = 5) -> dict:
-    """Full RAG pipeline: retrieve -> fuse -> rerank -> generate."""
+def generate_answer(query: str, top_n: int = 10, top_k: int = 5) -> dict:\
 
     # 1. Retrieve from both methods
     dense_results = dense_search(query, top_n=top_n)

@@ -9,7 +9,6 @@ SYSTEM_PROMPT = """You are a precise, helpful research assistant. You answer que
 
 
 def build_context_block(chunks: list[dict]) -> str:
-    """Format retrieved chunks into a numbered context block for the prompt."""
     if not chunks:
         return "No context chunks available."
 
@@ -25,7 +24,6 @@ def build_context_block(chunks: list[dict]) -> str:
 
 
 def build_user_message(query: str, chunks: list[dict]) -> str:
-    """Build the full user message with context and question."""
     context = build_context_block(chunks)
     return f"""Context:
 {context}
