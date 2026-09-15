@@ -28,7 +28,26 @@
   --color-both: #3fbf7f;
   --color-danger: #e5484d;
 
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  /*
+    Three families, each with one job.
+
+    Tailwind v4 has no JS config: a token declared here generates the matching
+    utility, so --font-sentient produces `font-sentient` and --font-mono
+    overrides Tailwind's default mono stack. --font-sans is what `body` below
+    inherits, which is why Sora needs no utility class anywhere.
+
+    The var() on each line is injected by next/font in layout.tsx. The names
+    differ from the tokens on purpose: a token referring to a var of its own
+    name would be circular and silently fall through to the fallback.
+
+    Sentient's serif fallback chain lives on the localFont() call rather than
+    here, so it is declared once. next/font uses the first entry there to build
+    a metric-adjusted fallback face, which is what keeps the hero from shifting
+    during the swap. The generic below is only a last resort if the injected
+    var ever goes missing.
+  */
+  --font-sentient: var(--font-sentient-local), serif;
+  --font-sans: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, "SFMono-Regular", monospace;
 
   --radius-card: 6px;

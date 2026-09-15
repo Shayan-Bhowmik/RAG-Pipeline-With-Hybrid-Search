@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono, Sora } from "next/font/google";
+import localFont from "next/font/local";
 
 import { AppShell } from "@/components/site/AppShell";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -7,12 +8,51 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+/**
+ * Sentient is the display face, used only on the homepage hero heading.
+ *
+ * It is not on Google Fonts, so the variable woff2 is vendored under
+ * public/fonts/sentient/ and loaded through next/font/local. That gets the
+ * same treatment as the Google fonts below: a generated @font-face, a hashed
+ * self-hosted URL, and an automatic preload, which a hand-written @font-face
+ * would not produce.
+ *
+ * The variable file covers weight 200 to 700 in roughly 49 KB. The hero renders
+ * at 600, which Sentient ships no static file for, so the variable font is the
+ * only way to hit the weight the design actually uses.
+ */
+const sentient = localFont({
+  src: "../../public/fonts/sentient/Sentient-Variable.woff2",
+  weight: "200 700",
+  style: "normal",
+  variable: "--font-sentient-local",
+  display: "swap",
+  // Sentient is a serif. Falling back to a sans during the swap would shift
+  // the hero noticeably, so the fallback stays in the same genre.
+  fallback: ["ui-serif", "Georgia", "serif"],
+});
+
+/**
+ * Sora is the primary face: body copy, every heading below the hero, buttons,
+ * navigation and UI text, inherited through the `sans` theme token rather than
+ * a utility class on each component.
+ *
+ * Only 400, 500 and 600 are requested because that is the complete set the
+ * codebase uses. There is no `font-bold` anywhere in src/, so shipping 700
+ * would be dead weight.
+ */
+const sora = Sora({
+  variable: "--font-sora",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
+/**
+ * JetBrains Mono is reserved for technical metadata: chunk IDs, endpoint paths,
+ * scores, model names and parameter values. No `weight` is passed, so Next
+ * serves the variable file and the full range stays available.
+ */
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
@@ -67,7 +107,10 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+    <html
+      lang="en"
+      className={`${sora.variable} ${sentient.variable} ${jetbrainsMono.variable}`}
+    >
       <body className="flex min-h-dvh flex-col">
         <AppShell>
           <a

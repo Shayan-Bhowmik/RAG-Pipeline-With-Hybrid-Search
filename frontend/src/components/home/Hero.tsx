@@ -22,7 +22,12 @@ export function Hero() {
             Retrieval-augmented generation
           </p>
 
-          <h1 className="mt-4 text-[2rem] font-semibold leading-[1.15] tracking-tight text-fg sm:text-[2.6rem]">
+          {/*
+            The only Sentient on the site. Everything else inherits Sora through
+            the `sans` theme token, so this is the single place the display face
+            is applied.
+          */}
+          <h1 className="mt-4 font-sentient text-[2.15rem] font-semibold leading-[1.1] tracking-tight text-fg sm:text-[2.8rem]">
             Hybrid retrieval for grounded answers
           </h1>
 
