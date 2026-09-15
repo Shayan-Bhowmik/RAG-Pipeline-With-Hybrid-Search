@@ -1,15 +1,13 @@
 /**
  * The people behind the project.
  *
- * PLACEHOLDER: `linkedInUrl` is null for both entries because no real profile
- * URL exists anywhere in the repository. Replace each null with the real
- * profile URL and the Made by section will render a working link instead of a
- * disabled one. Nothing else needs to change.
+ * `linkedInUrl` holds the real profile URLs. Where `portraitSrc` is null the
+ * Made by section renders an initials frame marked "portrait pending" instead;
+ * add an image under /public and reference it here to replace that.
  */
 
 export interface Person {
   name: string;
-  role: string;
   /** Null renders as a clearly marked pending link, never as a fake profile. */
   linkedInUrl: string | null;
   /** Two initials, used by the portrait frame until a real image is supplied. */
@@ -21,16 +19,14 @@ export interface Person {
 export const PEOPLE: Person[] = [
   {
     name: "Shayan Bhowmik",
-    role: "Retrieval pipeline and evaluation",
-    linkedInUrl: null,
+    linkedInUrl: "https://www.linkedin.com/in/shayan-bhowmik-227808321/",
     initials: "SB",
-    portraitSrc: null,
+    portraitSrc: "/shayan-bhowmik.jpg",
   },
   {
     name: "Govind Nair",
-    role: "Backend and frontend engineering",
-    linkedInUrl: null,
+    linkedInUrl: "https://www.linkedin.com/in/govind-nair-93495032a/",
     initials: "GN",
-    portraitSrc: null,
+    portraitSrc: "/govind-nair.jpg",
   },
 ];

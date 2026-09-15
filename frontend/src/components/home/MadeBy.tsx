@@ -45,7 +45,7 @@ export function MadeBy() {
           id="made-by-heading"
           className="text-center text-2xl font-semibold tracking-tight text-fg sm:text-[1.75rem]"
         >
-          Made by
+          Creators
         </h2>
 
         <ul className="mx-auto mt-10 grid max-w-2xl gap-10 sm:grid-cols-2">
@@ -56,7 +56,6 @@ export function MadeBy() {
               <h3 className="mt-4 text-base font-semibold tracking-tight text-fg">
                 {person.name}
               </h3>
-              <p className="mt-1 text-sm text-fg-muted">{person.role}</p>
 
               {person.linkedInUrl ? (
                 <a
