@@ -1,6 +1,11 @@
 import type { ReactNode } from "react";
 
-import { LEGAL_DETAILS, LEGAL_LAST_UPDATED, type LegalDetailKey } from "@/lib/legal";
+import {
+  CONTACT_EMAILS,
+  LEGAL_DETAILS,
+  LEGAL_LAST_UPDATED,
+  type LegalDetailKey,
+} from "@/lib/legal";
 
 export interface LegalSection {
   id: string;
@@ -26,6 +31,28 @@ export function Detail({ name }: { name: LegalDetailKey }) {
     <span className="rounded-sm border border-dashed border-border-strong px-1.5 py-0.5 font-mono text-[0.8em] text-fg-faint">
       [{detail.placeholder}]
     </span>
+  );
+}
+
+/**
+ * The contact addresses, as working mailto links. Both people are listed, so
+ * an enquiry does not depend on one person reading their mail.
+ */
+export function ContactEmails() {
+  return (
+    <>
+      {CONTACT_EMAILS.map((contact, index) => (
+        <span key={contact.email}>
+          {index > 0 ? " or " : null}
+          <a
+            href={`mailto:${contact.email}`}
+            className="text-accent underline underline-offset-4"
+          >
+            {contact.email}
+          </a>
+        </span>
+      ))}
+    </>
   );
 }
 

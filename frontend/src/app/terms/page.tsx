@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { Detail, LegalPage, type LegalSection } from "@/components/legal/LegalPage";
+import {
+  ContactEmails,
+  Detail,
+  LegalPage,
+  type LegalSection,
+} from "@/components/legal/LegalPage";
 
 export const metadata: Metadata = {
   title: "Terms and Conditions",
@@ -178,10 +183,10 @@ const SECTIONS: LegalSection[] = [
     heading: "Changes to these terms",
     body: (
       <p>
-        These terms may be revised as the project changes. The date at the top of this page
-        reflects the most recent revision, and continued use after a revision means the
-        updated terms apply. These terms are governed by the laws of{" "}
-        <Detail name="jurisdiction" />.
+        These Terms may be revised periodically to reflect changes to the application, its
+        features, or applicable requirements. The latest revision date will be displayed
+        on this page. Continued use of the application following any updates constitutes
+        acceptance of the revised Terms.
       </p>
     ),
   },
@@ -190,7 +195,7 @@ const SECTIONS: LegalSection[] = [
     heading: "Contact",
     body: (
       <p>
-        Questions about these terms can be sent to <Detail name="contactEmail" />, or
+        Questions about these terms can be sent to <ContactEmails />, or
         raised as an issue in the project repository linked in the footer.
       </p>
     ),

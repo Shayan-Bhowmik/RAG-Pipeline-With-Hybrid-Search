@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 
-import { Detail, LegalPage, type LegalSection } from "@/components/legal/LegalPage";
+import {
+  ContactEmails,
+  Detail,
+  LegalPage,
+  type LegalSection,
+} from "@/components/legal/LegalPage";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -151,10 +156,16 @@ const SECTIONS: LegalSection[] = [
     body: (
       <>
         <p>
-          Query text is held only for the lifetime of the request and is not persisted by
-          this application afterwards. Server logs are retained for{" "}
-          <Detail name="retentionPeriod" />. Corpus documents remain until the operator
-          removes them.
+          Query text and generated responses are not persistently stored after a request
+          is completed.
+        </p>
+        <p>
+          Corpus documents and their embeddings remain available until explicitly deleted
+          by the operator.
+        </p>
+        <p>
+          Operational logs are retained only as necessary for service monitoring and
+          debugging, and do not record query text or document content.
         </p>
       </>
     ),
@@ -190,7 +201,7 @@ const SECTIONS: LegalSection[] = [
         </p>
         <p>
           If you believe request logs contain information relating to you and you want it
-          removed, contact us at <Detail name="contactEmail" /> and we will address the
+          removed, contact us at <ContactEmails /> and we will address the
           request where the logs are still within their retention window. Depending on
           where you live, local law may give you further rights over personal data.
         </p>
@@ -213,7 +224,7 @@ const SECTIONS: LegalSection[] = [
     heading: "Contact",
     body: (
       <p>
-        Questions about this policy can be sent to <Detail name="contactEmail" />, or
+        Questions about this policy can be sent to <ContactEmails />, or
         raised as an issue in the project repository linked in the footer.
       </p>
     ),

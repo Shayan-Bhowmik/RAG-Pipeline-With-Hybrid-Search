@@ -16,10 +16,16 @@ export interface LegalValue {
 export const LEGAL_LAST_UPDATED = "15 September 2026";
 
 export const LEGAL_DETAILS = {
-  contactEmail: { value: null, placeholder: "contact email to be added" },
-  operator: { value: null, placeholder: "operating individual or entity to be named" },
-  jurisdiction: { value: null, placeholder: "governing jurisdiction to be confirmed" },
-  retentionPeriod: { value: null, placeholder: "server log retention period to be confirmed" },
+  operator: {
+    value: "Shayan Bhowmik and Govind Nair",
+    placeholder: "operating individual or entity to be named",
+  },
 } satisfies Record<string, LegalValue>;
+
+/** Addresses the legal pages route enquiries to, rendered as mailto links. */
+export const CONTACT_EMAILS: ReadonlyArray<{ name: string; email: string }> = [
+  { name: "Shayan Bhowmik", email: "shayan.bhowmik05@gmail.com" },
+  { name: "Govind Nair", email: "govindhere.06@gmail.com" },
+];
 
 export type LegalDetailKey = keyof typeof LEGAL_DETAILS;
