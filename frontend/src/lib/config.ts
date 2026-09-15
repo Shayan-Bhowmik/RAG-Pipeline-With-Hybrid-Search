@@ -37,8 +37,15 @@ export const IS_USING_DEV_FALLBACK =
   !process.env.NEXT_PUBLIC_BACKEND_URL &&
   !process.env.NEXT_PUBLIC_API_URL;
 
-/** Client-side abort threshold. The reranker alone can take several seconds. */
-export const REQUEST_TIMEOUT_MS = 90_000;
+/**
+ * Client-side abort threshold.
+ *
+ * Retrieval and reranking finish in well under a second. Generation is the
+ * long pole: the configured model has measured between 60 and 120 seconds per
+ * query, so a shorter limit cancels requests that would have succeeded. Lower
+ * this once a faster generation model is in use.
+ */
+export const REQUEST_TIMEOUT_MS = 180_000;
 
 /** Matches the Security and Access document's stated query ceiling. */
 export const MAX_QUERY_LENGTH = 2000;

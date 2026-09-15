@@ -49,7 +49,7 @@ const ERROR_COPY: Record<ApiErrorKind, ApiErrorCopy> = {
   timeout: {
     title: "The query took too long",
     description:
-      "Retrieval and reranking run on CPU, so cold starts are slow. The request was cancelled rather than left hanging.",
+      "Generation did not return within three minutes, so the request was cancelled rather than left hanging.",
     action: "Try again",
   },
   "invalid-query": {
