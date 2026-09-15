@@ -657,7 +657,17 @@ The Frontend Specification called for a `#7C6FFF` purple secondary. It was dropp
 
 ### Typography
 
-**Inter** for UI and body, **JetBrains Mono** for technical metadata, both via `next/font/google` and self-hosted at build time. Monospace is reserved for things that are literally identifiers: chunk IDs, endpoint paths, scores, model names, parameter values. If it is mono on this site, it is a real value from the system.
+Three families, each with one job:
+
+| Family | Role | Loaded by |
+| --- | --- | --- |
+| **Sentient** | Display. The homepage hero heading and the wordmark, nothing else | `next/font/local`, variable woff2 vendored under `public/fonts/sentient/` |
+| **Sora** | Everything else: body, headings below the hero, buttons, navigation, UI. Inherited through the `sans` theme token, so no component applies it by hand | `next/font/google`, weights 400/500/600 |
+| **JetBrains Mono** | Technical metadata only | `next/font/google`, variable |
+
+Sentient is not on Google Fonts, so its variable file is committed with the ITF Free Font License it ships under. Loading it through `next/font/local` rather than a hand-written `@font-face` is what gets it a preload link and a metric-adjusted fallback, so the hero does not reflow when it swaps in.
+
+Monospace is reserved for things that are literally identifiers: chunk IDs, endpoint paths, scores, model names, parameter values. If it is mono on this site, it is a real value from the system.
 
 ### Layout and motion
 

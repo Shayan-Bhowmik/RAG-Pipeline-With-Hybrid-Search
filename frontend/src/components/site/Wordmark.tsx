@@ -31,11 +31,23 @@ export function Mark({ className }: { className?: string }) {
   );
 }
 
+/**
+ * The wordmark is set in Sentient, the same display face as the homepage hero.
+ * Those two are the only places the brand speaks in its own voice; everything
+ * else stays in Sora. It is already preloaded for the hero, so reusing it here
+ * costs no extra bytes.
+ *
+ * The mark is nudged up by 0.09em. `items-center` centres it on the text's
+ * line box, but the descender in "Hybrid" drags that box down, so the mark
+ * lands about 1.35px below the cap band at this size and reads as sagging.
+ * The eye aligns a mark to the cap band rather than to a single descender, and
+ * an em offset keeps that true if the wordmark is ever resized.
+ */
 export function Wordmark({ className }: { className?: string }) {
   return (
     <span className={cn("inline-flex items-center gap-2", className)}>
-      <Mark className="h-5 w-5 text-accent" />
-      <span className="text-[0.95rem] font-semibold tracking-tight text-fg">
+      <Mark className="h-5 w-5 -translate-y-[0.09em] text-accent" />
+      <span className="font-sentient text-[1.02rem] font-semibold text-fg">
         HybridRAG
       </span>
     </span>
