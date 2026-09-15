@@ -19,7 +19,7 @@ HybridRAG runs both and fuses the results, and the repository carries the measur
 
 > Versions above are taken from `backend/requirements.txt` and `frontend/package.json`. The repository does not pin a Python version or declare a Node `engines` range.
 
-> No `LICENSE` file is present in the repository. See [License / Author](#license--author).
+![License](https://img.shields.io/badge/License-MIT-blue)
 
 ---
 
@@ -702,7 +702,11 @@ These were scoped out deliberately, per the PRD's non-goals, not left undone.
 
 ## License / Author
 
-No `LICENSE` file is currently present in this repository. Add one before publishing; without it the default is all-rights-reserved, which is probably not the intent for a portfolio project.
+Released under the MIT License. See [`LICENSE`](LICENSE) for the full text.
+
+Copyright (c) 2026 Govind Nair and Shayan Bhowmik.
+
+Corpus documents are not covered by this licence. They remain the property of their original authors and are excluded from the repository by `.gitignore`.
 
 **Built by**
 
