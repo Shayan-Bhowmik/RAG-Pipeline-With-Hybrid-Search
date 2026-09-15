@@ -64,7 +64,7 @@ This document presents the empirical evaluation of our hybrid retrieval pipeline
 - Hybrid + Reranker scored **`0.6628` MRR**, slightly lower than pre-rerank Hybrid (**`0.7163`**), while introducing ~7 seconds of CPU cross-encoder inference per query.
 - **Why?**
   1. **Domain Bias:** Off-the-shelf cross-encoders (`bge-reranker-base`) are trained primarily on conversational passages and web search data (MS MARCO). On dense engineering specs and architecture tables, the cross-encoder occasionally favored longer narrative chunks over concise factual definitions.
-  2. **Candidate Density:** In a small corpus (~60 chunks), RRF already pushes the ideal candidate into the top 1–3 positions. Reranking adds the risk of false-negative demotion.
+  2. **Candidate Density:** In a small corpus (~48 chunks), RRF already pushes the ideal candidate into the top 1–3 positions. Reranking adds the risk of false-negative demotion.
 - **Production Decision:** For latency-critical and compute-constrained workloads on technical corpora, **pre-rerank Hybrid RRF provides the optimal Pareto frontier of accuracy and zero-latency inference**.
 
 ---

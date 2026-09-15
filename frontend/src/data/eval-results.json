@@ -1,0 +1,232 @@
+{
+  "generatedFrom": "backend/eval/results.md",
+  "generatedAt": "2026-09-15T14:32:28.233Z",
+  "evalSetSize": 30,
+  "tables": [
+    {
+      "id": "overall",
+      "label": "All queries",
+      "queryCount": 30,
+      "rows": [
+        {
+          "mode": "Dense (pgvector)",
+          "metrics": {
+            "recall1": 0.4667,
+            "recall3": 0.6,
+            "recall5": 0.7333,
+            "recall10": 0.8,
+            "mrr": 0.5846
+          },
+          "best": {
+            "recall1": false,
+            "recall3": false,
+            "recall5": false,
+            "recall10": false,
+            "mrr": false
+          }
+        },
+        {
+          "mode": "Sparse (BM25)",
+          "metrics": {
+            "recall1": 0.6,
+            "recall3": 0.7,
+            "recall5": 0.8,
+            "recall10": 0.9667,
+            "mrr": 0.6877
+          },
+          "best": {
+            "recall1": false,
+            "recall3": false,
+            "recall5": false,
+            "recall10": true,
+            "mrr": false
+          }
+        },
+        {
+          "mode": "Hybrid (RRF)",
+          "metrics": {
+            "recall1": 0.6,
+            "recall3": 0.8,
+            "recall5": 0.9,
+            "recall10": 0.9333,
+            "mrr": 0.7163
+          },
+          "best": {
+            "recall1": true,
+            "recall3": true,
+            "recall5": true,
+            "recall10": false,
+            "mrr": true
+          }
+        },
+        {
+          "mode": "Hybrid + Reranker",
+          "metrics": {
+            "recall1": 0.5333,
+            "recall3": 0.7,
+            "recall5": 0.8667,
+            "recall10": 0.9333,
+            "mrr": 0.6628
+          },
+          "best": {
+            "recall1": false,
+            "recall3": false,
+            "recall5": false,
+            "recall10": false,
+            "mrr": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "exact",
+      "label": "Exact-term queries",
+      "queryCount": 15,
+      "rows": [
+        {
+          "mode": "Dense (pgvector)",
+          "metrics": {
+            "recall1": 0.4667,
+            "recall3": 0.6667,
+            "recall5": 0.8,
+            "recall10": 0.8,
+            "mrr": 0.6158
+          },
+          "best": {
+            "recall1": false,
+            "recall3": false,
+            "recall5": false,
+            "recall10": false,
+            "mrr": false
+          }
+        },
+        {
+          "mode": "Sparse (BM25)",
+          "metrics": {
+            "recall1": 0.7333,
+            "recall3": 0.8667,
+            "recall5": 0.8667,
+            "recall10": 1,
+            "mrr": 0.8058
+          },
+          "best": {
+            "recall1": true,
+            "recall3": true,
+            "recall5": false,
+            "recall10": true,
+            "mrr": true
+          }
+        },
+        {
+          "mode": "Hybrid (RRF)",
+          "metrics": {
+            "recall1": 0.7333,
+            "recall3": 0.8,
+            "recall5": 0.9333,
+            "recall10": 1,
+            "mrr": 0.8044
+          },
+          "best": {
+            "recall1": true,
+            "recall3": false,
+            "recall5": true,
+            "recall10": true,
+            "mrr": false
+          }
+        },
+        {
+          "mode": "Hybrid + Reranker",
+          "metrics": {
+            "recall1": 0.6,
+            "recall3": 0.8,
+            "recall5": 0.9333,
+            "recall10": 1,
+            "mrr": 0.7284
+          },
+          "best": {
+            "recall1": false,
+            "recall3": false,
+            "recall5": true,
+            "recall10": true,
+            "mrr": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "paraphrase",
+      "label": "Paraphrase and semantic queries",
+      "queryCount": 15,
+      "rows": [
+        {
+          "mode": "Dense (pgvector)",
+          "metrics": {
+            "recall1": 0.4667,
+            "recall3": 0.5333,
+            "recall5": 0.6667,
+            "recall10": 0.8,
+            "mrr": 0.5533
+          },
+          "best": {
+            "recall1": false,
+            "recall3": false,
+            "recall5": false,
+            "recall10": false,
+            "mrr": false
+          }
+        },
+        {
+          "mode": "Sparse (BM25)",
+          "metrics": {
+            "recall1": 0.4667,
+            "recall3": 0.5333,
+            "recall5": 0.7333,
+            "recall10": 0.9333,
+            "mrr": 0.5695
+          },
+          "best": {
+            "recall1": false,
+            "recall3": false,
+            "recall5": false,
+            "recall10": true,
+            "mrr": false
+          }
+        },
+        {
+          "mode": "Hybrid (RRF)",
+          "metrics": {
+            "recall1": 0.4667,
+            "recall3": 0.8,
+            "recall5": 0.8667,
+            "recall10": 0.8667,
+            "mrr": 0.6281
+          },
+          "best": {
+            "recall1": true,
+            "recall3": true,
+            "recall5": true,
+            "recall10": false,
+            "mrr": true
+          }
+        },
+        {
+          "mode": "Hybrid + Reranker",
+          "metrics": {
+            "recall1": 0.4667,
+            "recall3": 0.6,
+            "recall5": 0.8,
+            "recall10": 0.8667,
+            "mrr": 0.5972
+          },
+          "best": {
+            "recall1": true,
+            "recall3": false,
+            "recall5": false,
+            "recall10": false,
+            "mrr": false
+          }
+        }
+      ]
+    }
+  ]
+}

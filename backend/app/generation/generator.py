@@ -8,6 +8,14 @@ from app.generation.prompt import SYSTEM_PROMPT, build_user_message
 from app.generation.citations import extract_citations
 
 
+class GenerationError(RuntimeError):
+    """Raised when the language model call does not produce a usable answer.
+
+    Retrieval has already succeeded at this point, so callers can report the
+    failure as generation-specific rather than as a general server fault.
+    """
+
+
 _client: OpenAI | None = None
 
 
@@ -39,16 +47,29 @@ def generate_answer(query: str, top_n: int = 10, top_k: int = 5) -> dict:
     user_message = build_user_message(query, reranked)
 
     client = _get_client()
-    response = client.chat.completions.create(
-        model=settings.llm_model_name,
-        max_tokens=1024,
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": user_message},
-        ],
-    )
+    try:
+        response = client.chat.completions.create(
+            model=settings.llm_model_name,
+            max_tokens=1024,
+            messages=[
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": user_message},
+            ],
+        )
+    except Exception as exc:
+        raise GenerationError(f"LLM request failed: {exc}") from exc
+
+    # Providers can return an error payload with no choices at all, which the
+    # SDK surfaces as choices=None. Catch that here so it reads as a generation
+    # failure rather than an unrelated TypeError further down.
+    if not response.choices:
+        raise GenerationError(
+            f"LLM provider returned no choices (model={settings.llm_model_name})"
+        )
 
     answer = response.choices[0].message.content
+    if not answer:
+        raise GenerationError("LLM provider returned an empty message")
 
     # 5. Extract citations from the answer
     citations = extract_citations(answer, reranked)
