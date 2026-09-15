@@ -60,7 +60,8 @@ export function Architecture() {
       tone="sunken"
     >
       <div className="overflow-x-auto rounded-card border border-border bg-surface p-4 sm:p-6 scrollbar-thin">
-        <div className="min-w-[680px]">
+        {/* Below this width the diagram's sub-labels stop being readable. */}
+        <div className="min-w-[760px]">
           <PipelineDiagram />
         </div>
       </div>

@@ -31,8 +31,12 @@ export function HeroVisual() {
             <PipelineCanvas />
           </div>
         ) : (
-          <div className="px-4 py-6">
-            <PipelineDiagram />
+          // The diagram carries real labels, so it scrolls rather than
+          // shrinking below the point where they can be read.
+          <div className="overflow-x-auto px-4 py-6 scrollbar-thin">
+            <div className="min-w-[620px]">
+              <PipelineDiagram />
+            </div>
           </div>
         )}
       </div>
